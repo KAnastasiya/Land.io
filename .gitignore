@@ -1,0 +1,11 @@
+node_modules/
+
+sources/externals/bootstrap-3.3.6/*
+!*/sources/externals/bootstrap-3.3.6/dist/js/bootstrap.min.js
+
+.DS_Store
+Thumbs.db
+*.sublime*
+*.log
+*.psd
+*.ai

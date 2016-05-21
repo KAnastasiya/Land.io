@@ -1,0 +1,53 @@
+.price-container {
+  border: 1px solid @list-group-border;
+  border-radius: @border-radius-large;
+  background-color: @white;
+}
+
+.panel-primary .price-container.active {
+  border: 2px solid @brand-primary;
+  @media (max-width: @screen-xs-max) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  @media (min-width: @screen-sm-min) {
+    margin-right: -@padding-large-horizontal * 1.5;
+    margin-left: -@padding-large-horizontal * 1.5;
+  }
+  .panel-heading {
+    color: @white;
+    background-color: @brand-primary;
+  }
+}
+
+.first-price {
+  .translate(200px; 0);
+}
+
+.last-price  {
+  .translate(-200px; 0);
+}
+
+.price-value {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: @font-size-base * 4.3;
+  line-height: 1.2;
+  position: relative;
+  margin-bottom: 0;
+  sup {
+    font-size: @font-size-large;
+    font-weight: 400;
+    position: absolute;
+    top: 30px;
+  }
+  span {
+    font-size: @font-size-small;
+    font-weight: 600;
+    color: @gray;
+  }
+}
+
+.panel-footer .btn {
+  width: 70%;
+}

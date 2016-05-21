@@ -1,0 +1,49 @@
+.background-image(@url) {
+  background: url(@url) top no-repeat;
+  background-size: cover;
+  background-clip: border-box;
+  background-origin: border-box;
+}
+
+.arrow-icon(@size; @color; @deg; @top; @right) {
+  content:'';
+  .square(@size);
+  border: 2px solid @color;
+  border-radius: 0;
+  border-left-width: 0;
+  border-bottom-width: 0;
+  transform: rotate(@deg);
+  position: absolute;
+  top: @top;
+  right: @right;
+}
+
+.dot-icon(@size; @color; @top; @left; @opacity) {
+  content:'';
+  .square(@size);
+  border: @size solid @color;
+  .opacity(@opacity);
+  border-radius: 50%;
+  position: absolute;
+  top: @top;
+  left: @left;
+}
+
+.insert-icon(@size; @url; @top; @left) {
+  content:'';
+  .square(@size);
+  background: url(@url) center no-repeat;
+  position: absolute;
+  top: @top;
+  left: @left;
+}
+
+.draw-line(@width; @height; @color; @top; @right) {
+  content: '';
+  width: @width;
+  height: @height;
+  background-color: @color;
+  position: absolute;
+  top: @top;
+  right: @right;
+}

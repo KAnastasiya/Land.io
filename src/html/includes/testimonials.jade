@@ -1,0 +1,40 @@
+section.container-fluid.page.testimonials
+  div.container
+    div(data-ride="carousel", data-interval="false")#carousel-example-generic.carousel.slide
+      div(role="listbox").carousel-inner
+        div.item.active
+          blockquote
+            img(src="sources/images/face1.jpg").center-block.img-circle
+            p.text-center &ldquo;Good design at the front-end suggests that everything is in order at the back-end, whether or not that is the case&rdquo;
+            footer.text-center Dmitry Fadeyev
+        div.item
+          blockquote
+            img(src="sources/images/face2.jpg").center-block.img-circle
+            p.text-center &ldquo;It’s not about knowing all the gimmicks and photo tricks. If you haven’t got the eye, no program will give it to you&rdquo;
+            footer.text-center David Carson
+        div.item
+          blockquote
+            img(src="sources/images/face3.jpg").center-block.img-circle
+            p.text-center &ldquo;There’s a point when you’re done simplifying. Otherwise, things get really complicated.&rdquo;
+            footer.text-center Frank Chimero
+        div.item
+          blockquote
+            img(src="sources/images/face4.jpg").center-block.img-circle
+            p.text-center &ldquo;Designing for clients that don’t appreciate the value of design is like buying new tires for a rental car.&rdquo;
+            footer.text-center Joel Fisher
+        div.item
+          blockquote
+            img(src="sources/images/face5.jpg").center-block.img-circle
+            p.text-center &ldquo;Every picture owes more to other pictures painted before than it owes to nature.&rdquo;
+            footer.text-center E.H. Gombrich
+      ol.carousel-indicators.testimonials-navigation
+        li(data-target="#carousel-example-generic", data-slide-to="0").active
+          img(src="sources/images/face1.jpg").img-circle
+        li(data-target="#carousel-example-generic", data-slide-to="1")
+          img(src="sources/images/face2.jpg").img-circle
+        li(data-target="#carousel-example-generic", data-slide-to="2")
+          img(src="sources/images/face3.jpg").img-circle
+        li(data-target="#carousel-example-generic", data-slide-to="3")
+          img(src="sources/images/face4.jpg").img-circle
+        li(data-target="#carousel-example-generic", data-slide-to="4")
+          img(src="sources/images/face5.jpg").img-circle

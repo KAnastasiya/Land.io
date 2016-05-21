@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: common.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: common.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Обработчик события нажатия на checkbox
+ */
+
+var _onCheckboxClick = function _onCheckboxClick() {
+  var checkboxElement = document.querySelector('.checkbox input');
+  if (checkboxElement.getAttribute('checked')) {
+    checkboxElement.removeAttribute('checked');
+  } else {
+    checkboxElement.setAttribute('checked', 'checked');
+  };
+};
+
+/**
+ * Плавное проскроливание вверх
+ * @param   {Object}  event  Событие
+ */
+var _scrollToTop = function _scrollToTop(event) {
+  window.scrollBy(0, -70);
+  if (window.pageYOffset > 0) {
+    requestAnimationFrame(_scrollToTop);
+  }
+};
+
+/**
+ * Изменение отображения подвала страницы при изменении размеров экрана
+ */
+var _changePageFooterLayout = function _changePageFooterLayout() {
+  var pageFooter = document.querySelector('.page-footer'),
+      pageFooterNav = document.querySelector('.footer-nav ul');
+
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    pageFooter.classList.add('text-center');
+    pageFooterNav.classList.add('nav-justified');
+  } else {
+    pageFooter.classList.remove('text-center');
+    pageFooterNav.classList.remove('nav-justified');
+  }
+};
+
+/**
+ * Инициализация анимации
+ */
+var _initShowElements = function _initShowElements() {
+  _showElements('.intro', ['.intro-header', '.intro-text', '.intro-image'], 'up');
+  _showElements('.pricing-container', ['.first-price', '.last-price'], 'left');
+  _showElements('.text-information-header', ['.first-text-information', '.second-text-information'], 'up');
+};
+
+/**
+ * Показ скрытых компонентов с применением необходимой анимации
+ * @param  {String}  elementNeedReached  Селектор DOM-элемента, при достижении
+ *                                       которого будут отрисованы новые DOM-элементы
+ * @param  {Array}   elementsNeedShow    Список селекторов DOM-элементов, которые
+ *                                       будут отрисованы
+ * @param  {String}  showAnimationClass  Название класса, описывающего анимацию
+ *                                       отрисовки элемента
+ */
+var _showElements = function _showElements(elementNeedReached, elementsNeedShow, showAnimationClass) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    // Show elements with animation (tablet and larger devices)
+    if (_isElementReached(elementNeedReached)) {
+      elementsNeedShow.forEach(function (elem, i) {
+        var element = document.querySelector(elem);
+        element.classList.add('in', showAnimationClass);
+      });
+    }
+  } else {
+    // Show elements without animation (smartphones)
+    elementsNeedShow.forEach(function (elem) {
+      var element = document.querySelector(elem);
+      element.style.transform = 'translateX(0)';
+      element.style.transform = 'translateY(0)';
+      element.classList.add('in');
+    });
+  }
+};
+
+/**
+ * Проверка на достижение DOM-элемента при скроллинге
+ * @param   {String}   Селектор DOM-элемента
+ * @return  {Boolean}
+ */
+var _isElementReached = function _isElementReached(elem) {
+  var element = document.querySelector(elem),
+      elementPosition = element.getBoundingClientRect(),
+      GAP = 300;
+
+  return elementPosition.top + GAP &lt;= window.innerHeight;
+};
+
+/**
+ * Обработчик события проскроливания страницы в самый вверх
+ * @param   {Object}  event  Событие
+ */
+function _onToTop(event) {
+  event.preventDefault();
+  _scrollToTop();
+}
+
+/**
+ * Обработчик события появления и скрытия поля поиска
+ */
+var _onSearchState = function _onSearchState() {
+  var needHidden = document.querySelectorAll('.info-nav');
+  for (var i = 0; i &lt; needHidden.length; i++) {
+    needHidden[i].classList.toggle('hidden');
+  };
+  document.querySelector('.search').classList.toggle('in', 'right');
+  document.querySelector('.search-icon').classList.toggle('close');
+};
+
+/**
+ * Обработчик события появления и скрытия информации о пользователе
+ */
+var _onUserInfoState = function _onUserInfoState() {
+  var userInfoElements = document.querySelectorAll('.user-info');
+  for (var i = 0; i &lt; userInfoElements.length; i++) {
+    userInfoElements[i].classList.toggle('in');
+  }
+};
+
+/**
+ * Обработчик события скроллинга страницы
+ */
+var _onWindowScroll = function _onWindowScroll() {
+  _initShowElements();
+};
+
+/**
+ * Обработчик события изменения размера экрана
+ */
+var _onResize = function _onResize() {
+  // Инициализация появления скрытых элементов
+  _initShowElements();
+
+  // Перестроение footer
+  _changePageFooterLayout();
+
+  // Закрытие информации о пользователе
+  var userInfoElements = document.querySelectorAll('.user-info');
+  for (var i = 0; i &lt; userInfoElements.length; i++) {
+    userInfoElements[i].classList.remove('in', 'increase');
+  }
+};
+
+//Навешивание обработчик событий
+window.addEventListener('resize', _onResize);
+window.addEventListener('scroll', _onWindowScroll);
+document.querySelector('.checkbox').addEventListener('click', _onCheckboxClick);
+document.querySelector('.to-top').addEventListener('click', _onToTop);
+
+$('.search-container').on('show.bs.dropdown hide.bs.dropdown', _onSearchState);
+$('.user-info-container, .user-info-container-xs').on('show.bs.dropdown hide.bs.dropdown', _onUserInfoState);
+
+// Инициализация интерфейса по умолчанию (сразу после загрузки страницы)
+_initShowElements();
+_changePageFooterLayout();
+//# sourceMappingURL=common.js.map
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#_changePageFooterLayout">_changePageFooterLayout</a></li><li><a href="global.html#_initShowElements">_initShowElements</a></li><li><a href="global.html#_isElementReached">_isElementReached</a></li><li><a href="global.html#_offVolume">_offVolume</a></li><li><a href="global.html#_onCheckboxClick">_onCheckboxClick</a></li><li><a href="global.html#_onProgressShow">_onProgressShow</a></li><li><a href="global.html#_onResize">_onResize</a></li><li><a href="global.html#_onRewindVideo">_onRewindVideo</a></li><li><a href="global.html#_onSearchState">_onSearchState</a></li><li><a href="global.html#_onToTop">_onToTop</a></li><li><a href="global.html#_onUserInfoState">_onUserInfoState</a></li><li><a href="global.html#_onVideoState">_onVideoState</a></li><li><a href="global.html#_onVolume">_onVolume</a></li><li><a href="global.html#_onVolumeState">_onVolumeState</a></li><li><a href="global.html#_onWindowScroll">_onWindowScroll</a></li><li><a href="global.html#_pauseVideo">_pauseVideo</a></li><li><a href="global.html#_playVideo">_playVideo</a></li><li><a href="global.html#_scrollToTop">_scrollToTop</a></li><li><a href="global.html#_setVideoCurrentTime">_setVideoCurrentTime</a></li><li><a href="global.html#_setVideoTime">_setVideoTime</a></li><li><a href="global.html#_showElements">_showElements</a></li><li><a href="global.html#MAX_VOLUME">MAX_VOLUME</a></li><li><a href="global.html#MIN_VOLUME">MIN_VOLUME</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat May 21 2016 15:50:07 GMT+0300 (EEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
