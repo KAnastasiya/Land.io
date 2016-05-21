@@ -102,11 +102,11 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('style', ['less', 'ucss', 'autoprefixer', 'cssmin']);
-  grunt.registerTask('script', ['concat', 'babel',  'uglify', 'jsdoc']);
+  grunt.registerTask('script', ['concat', 'babel', 'uglify', 'jsdoc']);
 
   grunt.registerTask('default', [
     'jade',
-    'less', 'ucss', 'autoprefixer','cssmin',
+    'less', 'ucss', 'autoprefixer', 'cssmin',
     'concat', 'babel', 'uglify', 'jsdoc',
     'watch']);
 };
