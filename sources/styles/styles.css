@@ -4301,7 +4301,7 @@ button.list-group-item-danger.active:focus {
 .pull-left {
   float: left !important;
 }
-.hide {
+.make-grid .hide {
   display: none !important;
 }
 .show {
