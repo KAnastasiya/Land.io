@@ -1,21 +1,21 @@
 section.video
   div.embed-responsive.embed-responsive-16by9
     video(
-      src="http://vjs.zencdn.net/v/oceans.mp4",
-      poster="http://tympanus.net/Freebies/Landio/img/video-poster.jpg",
+      src='http://vjs.zencdn.net/v/oceans.mp4',
+      poster='http://tympanus.net/Freebies/Landio/img/video-poster.jpg',
       autobuffer
     ).embed-responsive-item
 
-    button(type="button").btn.btn-default.video-btn.play-pause-btn
-      img(src="img/play.svg")
+    button(type='button').btn.btn-default.video-btn.play-pause-btn
+      img(src='img/play.svg', alt='Play')
 
     div.video-controls-bar.hidden
       div.video-time.current-time.hidden-xs
       div.video-time.duration.hidden-xs
       div.volume
-        button(type="button").btn.btn-default.video-btn.volume-btn
-          img(src="img/volume.svg")
-        input(type="range", value="1", min="0", max="1", step="0.1").value-range
+        button(type='button').btn.btn-default.video-btn.volume-btn
+          img(src='img/volume.svg', alt='Volume')
+        input(type='range', value='1', min='0', max='1', step='0.1').value-range
 
       div.video-progress
         div.total

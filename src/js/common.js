@@ -14,7 +14,6 @@ let _onCheckboxClick = () => {
 
 /**
  * Плавное проскроливание вверх
- * @param   {Object}  event  Событие
  */
 let _scrollToTop = () => {
   window.scrollBy(0, -70);

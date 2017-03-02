@@ -56,6 +56,7 @@ let _playVideo = () => {
   videoContainer.classList.add('inProcess');
   controlsContainer.classList.remove('hidden');
   playVideoButton.src = 'img/pause.svg';
+  playVideoButton.alt = 'Pause';
 };
 
 /**
@@ -65,6 +66,7 @@ let _pauseVideo = () => {
   video.pause();
   videoContainer.classList.add('inProcess');
   playVideoButton.src = 'img/play.svg';
+  playVideoButton.alt = 'Play';
 };
 
 /**
