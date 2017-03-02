@@ -25,13 +25,16 @@ nav.navbar.navbar-default.navbar-fixed-top
 
         li.dropdown.search-container
           a(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')#dLabel.hidden-xs.search-icon
+            span.sr-only Search
           div(aria-labelledby='dLabel').dropdown-menu.search.fade
             form(role='search').navbar-form
               div.form-group
-                input(type='text', placeholder='Type your search & hit Enter...').form-control
+                input(id='search1', type='text', placeholder='Type your search & hit Enter...').form-control
+                label(for='search1').sr-only Type your search & hit Enter...
           form(role='search').visible-xs.navbar-form
             div.form-group
-              input(type='text', placeholder='Type your search & hit Enter...').form-control
+              input(id='search2', type='text', placeholder='Type your search & hit Enter...').form-control
+              label(for='search2').sr-only Type your search & hit Enter...
 
         li.dropdown.clearfix.hidden-xs.user-info-container
           a(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')#dLabel.avatar

@@ -15,7 +15,8 @@ section.video
       div.volume
         button(type='button').btn.btn-default.video-btn.volume-btn
           img(src='img/volume.svg', alt='Volume')
-        input(type='range', value='1', min='0', max='1', step='0.1').value-range
+        input(id='volume', type='range', value='1', min='0', max='1', step='0.1').value-range
+        label(for='volume').sr-only
 
       div.video-progress
         div.total
