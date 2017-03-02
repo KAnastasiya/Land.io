@@ -1,6 +1,7 @@
 {
-  "name": "landing",
-  "version": "0.1.0",
+  "name": "Land.io",
+  "version": "1.0.0",
+  "author": "Anastasiia Kozenko",
   "devDependencies": {
     "babel-eslint": "*",
     "babel-preset-es2015": "*",
@@ -18,7 +19,6 @@
     "grunt-contrib-watch": "*",
     "grunt-eslint": "*",
     "grunt-html": "*",
-    "grunt-htmllint": "*",
     "grunt-jade": "*",
     "grunt-newer": "*",
     "jade": "*",

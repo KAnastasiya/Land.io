@@ -11,9 +11,8 @@ Craft your journey, absolutely free, with Land.io UI kit.
 
 ### Getting started
 
-1. Build and run local-server with client-side part of service.
-*Run `grunt` in catalog with source code (to produce development version and run a watcher at localhost:3000)*.
-2. Open url `http://localhost:3000` in your browser.
+1. Run `grunt` in catalog with source code (for build).
+2. Open `index.html` in your browser.
 
 
 ### Demo

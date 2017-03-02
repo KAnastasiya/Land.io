@@ -13,10 +13,6 @@ module.exports = function(grunt) {
       }
     },
 
-    htmllint: {
-      all: { src: './*.html' }
-    },
-
     less: {
       target: {
         files: {
