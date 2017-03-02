@@ -1,9 +1,7 @@
 node_modules/
-sources/externals/bootstrap-3.3.6/
+temp/
 
 .DS_Store
 Thumbs.db
 *.sublime*
 *.log
-*.psd
-*.ai

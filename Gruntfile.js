@@ -1,53 +1,52 @@
-'use strict';
-
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     jade: {
       html: {
         files: {
-          './': ['src/html/index.jade']
+          './': ['src/jade/index.jade']
         },
         options: {
           client: false
         }
       }
     },
+
     htmllint: {
       all: { src: './*.html' }
     },
+
     less: {
       target: {
         files: {
-          'sources/styles/styles.css': 'src/styles/styles.less'
+          'temp/styles.css': 'src/less/styles.less'
         }
       }
     },
-    ucss: {
-      target: {
-        pages: { crawl: ['./*.html'] },
-        css: ['sources/styles/styles.css']
-      }
-    },
+
     autoprefixer: {
       options: {
         browsers: ['last 2 versions', '> 5%'],
         diff: true
       },
-      '<%= pkg.name %>': { src: 'sources/styles/styles.css' }
+      '<%= pkg.name %>': { src: 'temp/styles.css' }
     },
+
     cssmin: {
       files: {
-        src: ['sources/styles/styles.css'],
-        dest: 'sources/styles/styles.min.css'
+        src: ['temp/styles.css'],
+        dest: './styles.min.css'
       }
     },
+
     concat: {
       '<%= pkg.name %>': {
-        src: ['src/scripts/*.js'],
-        dest: 'sources/scripts/output.js'
+        src: ['src/js/*.js'],
+        dest: 'temp/script.js'
       }
     },
+
     babel: {
       options: {
         sourceMap: true,
@@ -55,33 +54,27 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'sources/scripts/output.js': 'sources/scripts/output.js'
+          'temp/script.js': 'temp/script.js'
         }
       }
     },
+
     uglify: {
       options: {
         banner: '/*<%= pkg.name %>-<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %>*/\n'
       },
       '<%= pkg.name %>': {
-        src: 'sources/scripts/output.js',
-        dest: 'sources/scripts/output.min.js'
+        src: 'temp/script.js',
+        dest: 'script.min.js'
       }
     },
-    jsdoc: {
-      dist: {
-        src: ['sources/scripts/*.js'],
-        options: {
-          destination: 'sources/scripts/doc'
-        }
-      }
-    },
+
     watch: {
       options: {
         livereloader: true
       },
       jade: {
-        files: ['src/html/*.jade'],
+        files: ['src/jade/*'],
         tasks: ['jade']
       },
       htmllint: {
@@ -89,24 +82,25 @@ module.exports = function(grunt) {
         tasks: ['htmllint']
       },
       style: {
-        files: 'src/styles/*.less',
-        tasks: ['less', 'autoprefixer', 'ucss', 'cssmin']
+        files: 'src/less/*.less',
+        tasks: ['less', 'autoprefixer', 'cssmin']
       },
       script: {
-        files: 'src/scripts/*.js',
-        tasks: ['concat', 'babel', 'uglify', 'jsdoc']
+        files: 'src/js/*.js',
+        tasks: ['concat', 'babel', 'uglify']
       }
     }
   });
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('style', ['less', 'ucss', 'autoprefixer', 'cssmin']);
-  grunt.registerTask('script', ['concat', 'babel', 'uglify', 'jsdoc']);
+  grunt.registerTask('style', ['less', 'autoprefixer', 'cssmin']);
+  grunt.registerTask('script', ['concat', 'babel', 'uglify']);
 
   grunt.registerTask('default', [
     'jade',
-    'less', 'ucss', 'autoprefixer', 'cssmin',
-    'concat', 'babel', 'uglify', 'jsdoc',
-    'watch']);
+    'less', 'autoprefixer', 'cssmin',
+    'concat', 'babel', 'uglify',
+    'watch'
+  ]);
 };

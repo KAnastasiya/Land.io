@@ -1,0 +1,34 @@
+section.container-fluid.page.contract-background.sign-up
+  div.container
+    h3.text-center Sign up to receive free updates as soon as they hit!
+    form.sign-up-form
+      div.row
+        div.col-sm-6.col-lg-3
+          div.form-group
+            div.input-group
+              div.input-group-addon
+                object(type="image/svg+xml", data="img/user.svg")
+              input(type="text", placeholder="Your name").form-control.input-lg
+
+        div.col-sm-6.col-lg-3
+          div.form-group
+            div.input-group
+              div.input-group-addon
+                object(type="image/svg+xml", data="img/send.svg")
+              input(type="email", placeholder="Email address").form-control.input-lg
+
+        div.col-sm-6.col-lg-3
+          div.form-group
+            div.input-group
+              div.input-group-addon
+                object(type="image/svg+xml", data="img/lock.svg")
+              input(type="password", placeholder="Enter a password").form-control.input-lg
+
+        div.col-sm-6.col-lg-3
+          div.form-group
+            button(type="submit").btn.btn-primary.btn-lg.active.text-uppercase.col-xs-12.col-sm-6.col-lg-3.btn-sign Sign up for free!
+
+      div.checkbox
+        input(type="checkbox", checked = "checked")
+        label I agree to Land.io’s&nbsp;
+        a(href="http://tympanus.net/Freebies/Landio/#") terms of service

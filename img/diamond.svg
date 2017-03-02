@@ -1,0 +1,10 @@
+<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}
+    </style>
+  </defs>
+  <title/>
+  <path class="cls-1" d="M4.23 20H3l27 34 27-34h-1.23L43.5 30h-27L4.23 20M49 9l-9.25 5h-19.5L11 9l9.25-4h19.5L49 9"/>
+  <path class="cls-1" d="M16 30h28L30 54 16 30M10.5 9.5L3 20M49.5 9.5L57 20M39.5 14L44 29.5M20.5 14l-4 16"/>
+</svg>
