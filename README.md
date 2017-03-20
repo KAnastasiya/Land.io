@@ -17,4 +17,4 @@ Craft your journey, absolutely free, with Land.io UI kit.
 
 ### Demo
 
-If you want see, how site look like, click [this link] (http://kanastasiya.github.io/Land.io/)
+If you want see, how site look like, click [this link](http://kanastasiya.github.io/Land.io/)
