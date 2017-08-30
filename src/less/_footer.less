@@ -44,17 +44,17 @@
     color: @white-opacity-70;
   }
   &.to-top {
-    @media(max-width: @screen-xs-max) {
+    @media (max-width: @screen-xs-max) {
       &::after {
         .arrow-icon(@top-arrow-size; @white; -45deg; 100%; 50%);
       }
     }
-    @media(min-width: @screen-sm-min) {
+    @media (min-width: @screen-sm-min) {
       &::after {
         .arrow-icon(@top-arrow-size; @white; -45deg; 45%; -12px);
       }
     }
-    &:hover::after{
+    &:hover::after {
       border-color: @white-opacity-70;
     }
   }

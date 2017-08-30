@@ -1,6 +1,6 @@
 # Land.io
 
-Craft your journey, absolutely free, with Land.io UI kit.
+Craft your journey, absolutely free, with Land.io UI kit. Project use Bootstrap v3.3.7 and jQuery v1.12.1.
 
 
 ### Installation

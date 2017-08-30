@@ -14,7 +14,7 @@
 }
 
 // Intro
-.intro-text   {
+.intro-text {
   margin-bottom: @padding-large-vertical * 2;
 }
 
@@ -29,7 +29,7 @@
 }
 
 // Feauters
-@feauter-icon-left: 37%;
+@feauter-icon-left: 50%;
 
 .feauter {
   padding-top: @padding-large-vertical * 4.5;
@@ -45,12 +45,15 @@
   }
   &.ui::before {
     .insert-icon(@feauter-icon-size; 'img/pen.svg'; 0; @feauter-icon-left);
+    transform: translateX(-50%);
   }
   &.ultra::before {
     .insert-icon(@feauter-icon-size; 'img/ultra.svg'; 0; @feauter-icon-left);
+    transform: translateX(-50%);
   }
   &.free::before {
     .insert-icon(@feauter-icon-size; 'img/favorite.svg'; 0; @feauter-icon-left);
+    transform: translateX(-50%);
   }
 }
 
